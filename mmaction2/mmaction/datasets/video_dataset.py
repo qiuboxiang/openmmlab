@@ -81,7 +81,8 @@ class VideoDataset(BaseActionDataset):
         data_list = []
         fin = list_from_file(self.ann_file)
         for line in fin:
-            line_split = line.strip().split(self.delimiter)
+            # line_split = line.strip().split(self.delimiter)
+            line_split = line.strip().rsplit(' ', 1)
             if self.multi_class:
                 assert self.num_classes is not None
                 filename, label = line_split[0], line_split[1:]

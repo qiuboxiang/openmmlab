@@ -7,8 +7,8 @@ _base_ = [
 dataset_type = 'VideoDataset'
 data_root = 'data/kinetics400_tiny/train'
 data_root_val = 'data/kinetics400_tiny/val'
-ann_file_train = 'data/kinetics400_tiny/kinetics_tiny_train_video.txt'
-ann_file_val = 'data/kinetics400_tiny/kinetics_tiny_val_video.txt'
+ann_file_train = r'D:\openmmlab\mmaction2\data\ShuttleSet\annotation_train.txt'
+ann_file_val = r'D:\openmmlab\mmaction2\data\ShuttleSet\annotation_val.txt'
 
 file_client_args = dict(io_backend='disk')
 
@@ -58,7 +58,7 @@ test_pipeline = [
 ]
 
 train_dataloader = dict(
-    batch_size=4,
+    batch_size=1,
     num_workers=8,
     persistent_workers=True,
     sampler=dict(type='DefaultSampler', shuffle=True),
@@ -68,7 +68,7 @@ train_dataloader = dict(
         data_prefix=dict(video=data_root),
         pipeline=train_pipeline))
 val_dataloader = dict(
-    batch_size=32,
+    batch_size=2,
     num_workers=8,
     persistent_workers=True,
     sampler=dict(type='DefaultSampler', shuffle=False),
@@ -96,7 +96,7 @@ test_evaluator = val_evaluator
 default_hooks = dict(
     checkpoint=dict(type='CheckpointHook', interval=1, max_keep_ckpts=1))
 
-train_cfg = dict(type='EpochBasedTrainLoop', max_epochs=10, val_interval=1)
+train_cfg = dict(type='EpochBasedTrainLoop', max_epochs=5, val_interval=1)
 # 根据 10 个 epoch调整学习率调度
 param_scheduler = [
     dict(

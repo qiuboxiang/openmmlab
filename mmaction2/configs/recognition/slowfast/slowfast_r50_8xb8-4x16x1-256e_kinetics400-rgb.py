@@ -3,8 +3,8 @@ _base_ = [
 ]
 
 dataset_type = 'VideoDataset'
-data_root = 'data/kinetics400/videos_train'
-data_root_val = 'data/kinetics400/videos_val'
+data_root = 'mmaction2/data/ShuttleSet'
+data_root_val = 'mmaction2/data/ShuttleSet'
 ann_file_train = 'data/kinetics400/kinetics400_train_list_videos.txt'
 ann_file_val = 'data/kinetics400/kinetics400_val_list_videos.txt'
 ann_file_test = 'data/kinetics400/kinetics400_val_list_videos.txt'

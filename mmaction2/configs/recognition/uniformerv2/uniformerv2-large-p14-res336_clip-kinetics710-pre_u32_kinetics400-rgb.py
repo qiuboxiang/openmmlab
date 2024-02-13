@@ -37,7 +37,7 @@ model = dict(
         format_shape='NCTHW'))
 
 # dataset settings
-dataset_type = 'VideoDataset'
+dataset_type = 'mmaction2/data/ShuttleSet'
 data_root_val = 'data/k400'
 ann_file_test = 'data/k400/val.csv'
 
