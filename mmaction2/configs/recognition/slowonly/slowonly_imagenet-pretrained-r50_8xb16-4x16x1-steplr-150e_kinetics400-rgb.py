@@ -2,7 +2,8 @@ _base_ = ['slowonly_r50_8xb16-4x16x1-256e_kinetics400-rgb.py']
 
 model = dict(
     backbone=dict(
-        pretrained='https://download.pytorch.org/models/resnet50-11ad3fa6.pth')
+        pretrained='https://download.pytorch.org/models/resnet50-11ad3fa6.pth'),
+    cls_head=dict(num_classes=13)
 )
 
 optim_wrapper = dict(

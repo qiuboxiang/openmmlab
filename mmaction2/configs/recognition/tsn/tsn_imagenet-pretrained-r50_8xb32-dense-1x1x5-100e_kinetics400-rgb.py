@@ -96,7 +96,7 @@ optim_wrapper = dict(
 
 train_cfg = dict(type='EpochBasedTrainLoop', max_epochs=5, val_interval=1)
 
-load_from = None
+load_from = r"D:\openmmlab\mmaction2\work_dirs\tsn_imagenet-pretrained-r50_8xb32-dense-1x1x5-100e_kinetics400-rgb\best_acc_top1_epoch_5.pth"
 
 """vis_backends = [
     dict(type='LocalVisBackend')]  # 可视化后端的列表

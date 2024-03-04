@@ -3,14 +3,14 @@ _base_ = [
 ]
 
 # model settings
-model = dict(backbone=dict(pretrained=None))
+model = dict(backbone=dict(pretrained=None), cls_head=dict(dropout_ratio=0.5, init_std=0.001, num_classes=13))
 
 # dataset settings
 dataset_type = 'VideoDataset'
-data_root = 'data/kinetics400/videos_train'
-data_root_val = 'data/kinetics400/videos_val'
-ann_file_train = 'data/kinetics400/kinetics400_train_list_videos.txt'
-ann_file_val = 'data/kinetics400/kinetics400_val_list_videos.txt'
+data_root = ''
+data_root_val = ''
+ann_file_train = r'D:\openmmlab\mmaction2\data\ShuttleSet\annotation_train.txt'
+ann_file_val = r'D:\openmmlab\mmaction2\data\ShuttleSet\annotation_val.txt'
 
 file_client_args = dict(io_backend='disk')
 
@@ -57,7 +57,7 @@ test_pipeline = [
 ]
 
 train_dataloader = dict(
-    batch_size=16,
+    batch_size=8,
     num_workers=8,
     persistent_workers=True,
     sampler=dict(type='DefaultSampler', shuffle=True),

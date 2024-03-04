@@ -1,7 +1,7 @@
 _base_ = [('slowonly_imagenet-pretrained-r50_16xb16-'
            '4x16x1-steplr-150e_kinetics700-rgb.py')]
 
-model = dict(cls_head=dict(num_classes=710))
+model = dict(cls_head=dict(num_classes=13))
 
 file_client_args = dict(io_backend='disk')
 
@@ -49,8 +49,8 @@ test_pipeline = [
 
 k400_data_root = 'data/kinetics400/videos_train'
 k600_data_root = 'data/kinetics600/videos'
-k700_data_root = 'data/kinetics700/videos'
-k400_data_root_val = 'data/kinetics400/videos_val'
+k700_data_root = ''
+k400_data_root_val = ''
 k600_data_root_val = k600_data_root
 k700_data_root_val = k700_data_root
 
@@ -136,3 +136,5 @@ test_dataloader = dict(
     persistent_workers=True,
     sampler=dict(type='DefaultSampler', shuffle=False),
     dataset=k710_testset)
+
+load_from = None

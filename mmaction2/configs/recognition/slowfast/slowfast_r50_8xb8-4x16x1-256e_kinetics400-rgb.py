@@ -1,13 +1,14 @@
 _base_ = [
     '../../_base_/models/slowfast_r50.py', '../../_base_/default_runtime.py'
 ]
-
+model = dict(backbone=dict(pretrained=None), cls_head=dict(num_classes=13))
+# dataset settings
 dataset_type = 'VideoDataset'
-data_root = 'mmaction2/data/ShuttleSet'
-data_root_val = 'mmaction2/data/ShuttleSet'
-ann_file_train = 'data/kinetics400/kinetics400_train_list_videos.txt'
-ann_file_val = 'data/kinetics400/kinetics400_val_list_videos.txt'
-ann_file_test = 'data/kinetics400/kinetics400_val_list_videos.txt'
+data_root = ''
+data_root_val = ''
+ann_file_train = r'D:\openmmlab\mmaction2\data\ShuttleSet\annotation_train.txt'
+ann_file_val = r'D:\openmmlab\mmaction2\data\ShuttleSet\annotation_val.txt'
+ann_file_test = r'D:\openmmlab\mmaction2\data\ShuttleSet\annotation_val.txt'
 
 file_client_args = dict(io_backend='disk')
 train_pipeline = [
